@@ -1,6 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header, section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        header {
+            background: #000;
+            color: #fff;
+            padding: 20px; /* Add padding for spacing */
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            overflow: hidden; /* Hide overflow text */
+            white-space: nowrap; /* Prevent wrapping */
+            border-right: 0.15em solid orange; /* Create blinking cursor */
+        }
+        /* Keyframes for typing animation */
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            50% {
+                width: 100%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        /* Blinking cursor animation */
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: orange;
+            }
+        }
+        section {
+            background: #e8e8e8;
+            color: #444;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .picture {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        .scroll-section {
+            background: #f4f4f4;
+        }
+        .social-links a {
+            display: block;
+            color: #0066cc;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
 <body>
-<h1> Thanks for visiting Kumar Sameer!</h1>
+
+<header>
+    <div class="content">
+        <h1 id="headerText">Welcome to My Personal Webpage</h1>
+    </div>
+</header>
+
+<section id="about-me">
+    <div class="content">
+        <h2>About Me</h2>
+        <p>Write the prompt here.</p>
+    </div>
+</section>
+
+<section class="scroll-section">
+    <img src="images/image1.jpg" alt="Image 1" class="picture">
+</section>
+
+<section id="hobbies">
+    <div class="content">
+        <h2>Hobbies</h2>
+        <p>Write the prompt here.</p>
+    </div>
+</section>
+
+<section class="scroll-section">
+    <img src="images/image2.jpg" alt="Image 2" class="picture">
+</section>
+
+<section id="projects">
+    <div class="content">
+        <h2>Projects</h2>
+        <p>Write the prompt here.</p>
+    </div>
+</section>
+
+<section class="scroll-section">
+    <img src="images/image3.jpg" alt="Image 3" class="picture">
+</section>
+
+<section id="contact">
+    <div class="content">
+        <h2>Contact</h2>
+        <p>Write the prompt here.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
+            <a href="https://www.youtube.com/yourchannel" target="_blank">YouTube</a>
+            <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+        </div>
+    </div>
+</section>
+
+<section class="scroll-section">
+    <img src="images/image4.jpg" alt="Image 4" class="picture">
+</section>
+
+<script>
+    // Array of text to loop through
+    const textArray = [
+        "Welcome to My Personal Webpage",
+        "Kumar Sameer",
+        "2024"
+    ];
+
+    let currentIndex = 0;
+    function changeText() {
+        const headerText = document.getElementById('headerText');
+        headerText.textContent = textArray[currentIndex];
+        currentIndex = (currentIndex + 1) % textArray.length;
+        
+        // Remove blinking cursor after first animation
+        if (currentIndex === 1) {
+            headerText.style.borderRight = 'none';
+        }
+        
+        setTimeout(changeText, 4000); // Change text every 4 seconds (4000 milliseconds)
+    }
+
+    // Start the text change loop
+    changeText();
+</script>
+
 </body>
 </html>

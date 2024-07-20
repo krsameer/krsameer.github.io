@@ -12,26 +12,26 @@
             overflow-x: hidden;
         }
         header, section {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             transition: all 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
         }
         header {
             background: #000;
             color: #fff;
-            padding: 20px; /* Add padding for spacing */
         }
         header h1 {
-            font-size: 3rem;
+            font-size: 6vw;
             margin: 0;
-            overflow: hidden; /* Hide overflow text */
-            white-space: nowrap; /* Prevent wrapping */
-            border-right: 0.15em solid orange; /* Create blinking cursor */
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 0.15em solid orange;
         }
-        /* Keyframes for typing animation */
         @keyframes typing {
             0% {
                 width: 0;
@@ -43,7 +43,6 @@
                 width: 100%;
             }
         }
-        /* Blinking cursor animation */
         @keyframes blink-caret {
             from, to {
                 border-color: transparent;
@@ -82,6 +81,20 @@
         }
         .social-links a:hover {
             text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 8vw;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            .content {
+                padding: 10px;
+            }
+            .social-links a {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -143,7 +156,6 @@
 </section>
 
 <script>
-    // Array of text to loop through
     const textArray = [
         "Welcome to My Personal Webpage",
         "Kumar Sameer",
@@ -156,15 +168,13 @@
         headerText.textContent = textArray[currentIndex];
         currentIndex = (currentIndex + 1) % textArray.length;
         
-        // Remove blinking cursor after first animation
         if (currentIndex === 1) {
             headerText.style.borderRight = 'none';
         }
         
-        setTimeout(changeText, 4000); // Change text every 4 seconds (4000 milliseconds)
+        setTimeout(changeText, 4000);
     }
 
-    // Start the text change loop
     changeText();
 </script>
 
